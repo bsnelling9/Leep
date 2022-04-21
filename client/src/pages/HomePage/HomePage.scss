@@ -1,0 +1,72 @@
+@import '../../styles/partials/reset';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.home {
+    height: 100vh;
+    background: #0E0125;
+    background: -webkit-linear-gradient(top left, #0E0125, #01020C);
+    background: -moz-linear-gradient(top left, #0E0125, #01020C);
+    background: linear-gradient(to bottom right, #0E0125, #01020C);
+    &__wrapper {
+        margin-left: 15rem;
+        padding: 2rem;
+    }
+    &__subtitle {
+        color: white;
+        font-size: 1.5rem;
+    }
+    &__container {
+        margin-top: 4rem;
+    }
+    &__following {
+        &--list {
+            @include flex-box(row, center, center);
+            margin-top: 2rem;
+        }
+        &--container {
+            @include flex-box(row, flex-start, flex-start);
+        }
+    }
+    &__search {
+        @include flex-box(row, center, center)
+    }  
+}
+
+.search {
+    width: 80%;
+    @include flex-box(column, space-between, center);
+    &__input {
+        width: 80%;
+        padding: 1rem;
+        border-radius: 1rem;
+        outline: 0;
+        border: 2px solid white;
+        color: white;
+        background: transparent;
+        font-size: 1rem;
+        &:focus {
+            border: 2px solid #00bcd4; 
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        &::placeholder {
+            color: white;
+        }
+    }
+    &__container {
+        margin-top: 1rem;
+    }
+    &__label {
+        color: white;
+        font-size: 1.25rem;
+        &--none {
+            display: none;
+        }
+    }
+}
+
+.error{
+    border: 2px solid red; 
+}

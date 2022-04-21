@@ -1,0 +1,69 @@
+@import '../../styles/partials/reset';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+
+.edit{
+    height: 100vh;
+    background: #0E0125;
+    background: -webkit-linear-gradient(top left, #0E0125, #01020C);
+    background: -moz-linear-gradient(top left, #0E0125, #01020C);
+    background: linear-gradient(to bottom right, #0E0125, #01020C);
+    @include flex-box(null, null, center);
+    &__wrapper {
+        @include flex-box(column, center, center);
+        width: 100%;
+        margin-left: 15rem;
+    }
+    &__banner {
+        margin-bottom: 2rem;
+    }
+    &__username {
+        color: white;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+    &__title {
+        color: #00bcd4;
+        font-size: 1.5rem;
+    }
+    &__form {
+        @include flex-box(column, null, null);
+        width: 600px;
+        &--container {
+            @include flex-box(column, flex-start, flex-start);
+            margin-bottom: 2.25rem;
+        }
+        &--textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            outline: 0;
+            border: 1px solid white;
+            color: white;
+            background: transparent;
+            font-size: 0.875rem;
+        }
+        &--label {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        &--btn-container {
+            width: 100%;
+            @include flex-box(row, space-between, null)
+        }
+        &--btn {
+            font-size: 1.25rem;
+            cursor: pointer; 
+            color: #00bcd4;
+            outline: none;  
+            background: transparent;
+            border-radius: 1rem;
+            border: 2px solid white;
+            border: none;
+            padding: 0.25rem 0.75rem;
+         
+        }
+    }
+}

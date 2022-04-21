@@ -1,0 +1,66 @@
+@import '../../styles/partials/reset';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+
+.navbar {
+    @include flex-box(null, null, null);
+    width: 15rem;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    background: black;
+    &__wrapper {
+        padding-top: 2rem;
+        padding-left: 2rem;
+    }
+    &__logo {
+        color: aliceblue;
+        font-size: 2rem;
+    }
+    &__container {
+        margin-bottom: 1.25rem;
+        @include flex-box(row, flex-start, null);
+        &--logo {
+            margin-bottom: 2.5rem;
+        }
+    }
+    &__text {
+        color: white;
+        &:hover {
+            color: #00bcd4;
+        }
+        &--signup {
+            color: black;
+            font-weight: 700;
+        } 
+    }
+    &__signup {
+        background-color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 16px;
+    }
+    &__dropdown {
+        display: none;
+        &--item {
+            margin-top: 1rem;
+        }
+    }
+    &__list:hover &__dropdown {
+        @include flex-box(column, flex-start, flex-start);
+    }
+    &__link {
+        &--signup {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.account__name {
+    color: aliceblue;
+    font-size: 1rem;
+    &:hover {
+        color: #00bcd4;
+    }
+}

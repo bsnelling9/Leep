@@ -1,0 +1,49 @@
+@import '../../styles/partials/reset';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.7);
+    z-index: 9001;
+}
+
+.modal {
+    width: 50vw; // NOT SURE HERE
+    position: fixed;
+    z-index: 9001;
+    background: #0E0125;
+    background: -webkit-linear-gradient(top left, #0E0125, #01020C);
+    background: -moz-linear-gradient(top left, #0E0125, #01020C);
+    background: linear-gradient(to bottom right, #0E0125, #01020C);
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 3rem 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    &__wrapper {
+        width: 100%;
+        @include flex-box(column, center, center);
+    }
+    &__title{
+        color: #00bcd4;
+        font-size: 2rem;
+    }
+    &__banner {
+        width: 100%;
+        height: 15rem;
+        border: 2px solid white;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 0 0 2rem 0;
+    }
+    &__image {
+        width: 100%;
+        height: 100%;
+    }
+}

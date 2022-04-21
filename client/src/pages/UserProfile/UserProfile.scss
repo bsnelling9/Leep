@@ -1,0 +1,96 @@
+@import '../../styles/partials/reset';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.profile {
+    min-height: 100vh;
+    background: #0E0125;
+    background: -webkit-linear-gradient(top left, #0E0125, #01020C);
+    background: -moz-linear-gradient(top left, #0E0125, #01020C);
+    background: linear-gradient(to bottom right, #0E0125, #01020C);
+    &__wrapper {
+        margin-left: 15rem;
+    }
+    &__banner {
+        @include flex-box(row, flex-start, flex-end);
+        position: relative;
+        height: 20rem;
+        border-bottom: 1px solid $secondary-grey;
+        background: #050147;
+        background: -webkit-linear-gradient(top left, #050147, #7C050D);
+        background: -moz-linear-gradient(top left, #050147, #7C050D);
+        background: linear-gradient(to bottom right, #050147, #7C050D);
+        &--container{
+            padding: 1rem;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            @include flex-box(row, space-between, flex-end);
+        }
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        position: absolute;
+    }
+    &__username {
+        color: white;
+        font-size: 2.5rem;
+        z-index: 2;
+    }
+    &__container {
+        @include flex-box(row, null, flex-start);
+        margin-top: 1rem;
+    }
+    &__btn {
+        font-size: 1rem;
+        cursor: pointer; 
+        color: white;
+        outline: none;  
+        background: transparent;
+        border: none;
+        padding: 0.25rem 0.75rem;
+        &:hover {
+            border: 2px solid white;
+            border-radius: 1rem;
+        }
+    }
+    &__title {
+        color: #00bcd4;
+        font-size: 1.25rem;
+        margin: 0 0 0.5rem 0;
+    }
+    &__content {
+        padding: 1rem 2rem;
+        min-height: 328px;
+        @include flex-box(row, null, flex-start);
+        &--container{
+            @include flex-box(column, null, flex-start);
+            width: 50%;
+        } 
+    }
+    &__text {
+        color: white;
+        font-size: $p-font-sizes;
+        text-align: left;
+    }
+    &__song-list { 
+        width: 50%;
+        padding-left: 1rem;
+        border-left: 1px solid silver;
+        min-height: 328px;
+    }
+    &__btn {
+        border: none;
+        background: none;
+        padding: 0;
+        outline: none;
+        &:hover{
+            border-radius: none;
+            border: none;
+        }
+    }
+}
+
+

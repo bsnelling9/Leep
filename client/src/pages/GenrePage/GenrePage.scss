@@ -1,0 +1,27 @@
+@import '../../styles/partials/reset';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.genre {
+    background: #0E0125;
+    background: -webkit-linear-gradient(top left, #0E0125, #01020C);
+    background: -moz-linear-gradient(top left, #0E0125, #01020C);
+    background: linear-gradient(to bottom right, #0E0125, #01020C);
+    padding: 1rem;
+    &__wrapper {
+        margin-left: 15rem;
+        margin-right: 5rem;
+        padding: 3rem 0;
+        @include flex-box(column, center, flex-start);
+    }
+    &__title {
+        color: white;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 2rem
+    }
+    &__list {
+        @include flex-box(row, center, center);
+        flex-wrap: wrap;
+    }
+}

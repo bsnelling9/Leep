@@ -1,0 +1,67 @@
+@use "./fonts"as *;
+
+
+// breakpoints
+
+$breakpoints:(small: 320px,
+    medium: 768px,
+    large: 1280px,
+);
+
+// font variables
+$font: 'Titillium Web',
+'Roboto',
+sans-serif;
+
+$semi-bold: 600;
+$regular: 400;
+
+// font sizes
+$p-font-sizes: .9375rem;
+$p1-font-sizes: (null: .9375rem,
+    320px: (.9375rem, 1.625rem),
+    768px: (1rem, 1.75rem),
+);
+
+$p2-font-sizes: (null: .8125rem,
+    320px: (.8125rem, 1.25rem),
+    768px: (.875rem, 1.375rem),
+);
+
+$p3-font-sizes: (null: .6875rem,
+    320px: (.6875rem, 1rem),
+    768px: (.75rem, 1.125rem),
+);
+
+$h1-font-sizes: (null: 1.75rem,
+    320px: (1.75rem, 36px),
+    768px: (2rem, 40px),
+);
+
+$h2-font-sizes: (null: 1.25rem,
+    320px: (1.25rem, 1.75rem),
+    768px: (1.5rem, 2rem),
+);
+
+// buttons, labels
+$h3-font-sizes: (null: .8125rem,
+    320px: (.8125rem, 1.25rem),
+    768px: (.875rem, 1.375rem),
+);
+
+$h4-font-sizes: (null: .6875rem,
+    320px: (.6875rem, 1rem),
+    768px: (.75rem, 1.125rem),
+);
+
+// colors
+$global-text-color: #13182C;
+$global-white-color: white;
+$interactive-color:#2E66E5;
+$secondary-text-color: #5C667E;
+$secondary-grey:#bdc5d5;
+$page-background-color:#f7f8f9;
+$nav-background-color:#232940;
+$CTA-hover-color:#232940;
+$instock-label-color:#158463;
+$alert-color:#C94515;
