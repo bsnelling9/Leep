@@ -45,7 +45,7 @@ export default function LoginPage (props) {
         event.preventDefault();
         if(!username.error && !password.error) {
             try {
-               const response = await axios.post(`http://localhost:8080/login`, {
+               const response = await axios.post(`https://leep-server.herokuapp.com/login`, {
                     username: username.value,
                     password: password.value,
                 })
@@ -65,7 +65,7 @@ export default function LoginPage (props) {
 
     const fetchProfile = async (token) => {
         try {
-            const result = await axios.get(`http://localhost:8080/login/profile`, {
+            const result = await axios.get(`https://leep-server.herokuapp.com/login/profile`, {
                 headers: { 
                     authorization: `Bearer ${token}`
                 }

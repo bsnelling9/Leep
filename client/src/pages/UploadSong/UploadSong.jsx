@@ -33,7 +33,7 @@ export default function SongUpload() {
         formData.append('string', profile.username);
         formData.append('string', profile.userid);
         try {
-            const res = await axios.post(`http://localhost:8080/profile/upload-song`, formData)
+            const res = await axios.post(`https://leep-server.herokuapp.com/profile/upload-song`, formData)
             console.log(res)
             setSubmit(true)
         } catch(err) {

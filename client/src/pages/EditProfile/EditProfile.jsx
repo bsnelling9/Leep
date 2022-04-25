@@ -34,7 +34,7 @@ export default function EditProfile () {
         event.preventDefault();
         const username = profile.username
         const tag = tags
-        await axios.patch(`http://localhost:8080/profile/edit`, {
+        await axios.patch(`https://leep-server.herokuapp.com/profile/edit`, {
             username,
             summary,
             bio,
@@ -45,7 +45,7 @@ export default function EditProfile () {
 
     const getUpdates = async () => {
         try { 
-            const response = await axios.get(`http://localhost:8080/profile/updated/${profile?.username}`);
+            const response = await axios.get(`https://leep-server.herokuapp.com/profile/updated/${profile?.username}`);
             setProfile(response.data)
             SetSummary(response.data.summary)
             setBio(response.data.content)

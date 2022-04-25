@@ -70,7 +70,7 @@ export default function SignupPage () {
             console.log("hello there")
             const hashedPassword = bcrypt.hashSync(password.value, bcrypt.genSaltSync(10))
             try {
-                await axios.post(`http://localhost:8080/signup`, {
+                await axios.post(`https://leep-server.herokuapp.com/signup`, {
                     username: username.value,
                     password: hashedPassword,
                 })

@@ -24,7 +24,7 @@ export default function Modal (props) {
         formData.append('string', props.profile.userid);
         console.log(formData)
         try {
-            const res = await axios.post(`http://localhost:8080/profile/banner`, formData)
+            const res = await axios.post(`https://leep-server.herokuapp.com/profile/banner`, formData)
             console.log(res)
             props.handleModal()
             props.updateBanner()

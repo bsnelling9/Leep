@@ -14,7 +14,7 @@ export default function UserProfile (props) {
 
     const getRecentSongs = async () => {
         try { 
-            const response = await axios.get(`http://localhost:8080/profile/recent/${profile?.username}`);
+            const response = await axios.get(`https://leep-server.herokuapp.com/profile/recent/${profile?.username}`);
             setRecentSongs(response.data)
         } catch (err) {
             console.error(err);
@@ -23,9 +23,9 @@ export default function UserProfile (props) {
   
     const getUpdates = async () => {
         try { 
-            const response = await axios.get(`http://localhost:8080/profile/updated/${profile?.username}`);
+            const response = await axios.get(`https://leep-server.herokuapp.com/profile/updated/${profile?.username}`);
             setProfile(response.data)
-            const banner = await axios.get(`http://localhost:8080/profile/banner/${profile?.username}`);
+            const banner = await axios.get(`https://leep-server.herokuapp.com/profile/banner/${profile?.username}`);
             setBanner(banner.data)
         } catch (err) {
             console.error(err);
@@ -34,7 +34,7 @@ export default function UserProfile (props) {
 
     const updateBanner = async () => {
         try { 
-            const banner = await axios.get(`http://localhost:8080/profile/banner/${profile?.username}`);
+            const banner = await axios.get(`https://leep-server.herokuapp.com/profile/banner/${profile?.username}`);
             setBanner(banner.data)
         } catch (err) {
             console.error(err);

@@ -15,7 +15,7 @@ export default function HomePage() {
 
     const getFollowing = async () => {
         try { 
-            const response = await axios.get(`http://localhost:8080/profile/following/${profile.tokenInfo?.profileData.username}`);
+            const response = await axios.get(`https://leep-server.herokuapp.com/profile/following/${profile.tokenInfo?.profileData.username}`);
             sessionStorage.setItem('following', JSON.stringify(response.data));
             setFollowing(response.data)
        
@@ -32,7 +32,7 @@ export default function HomePage() {
         event.preventDefault()
         const artist = search
         try { 
-            const response = await axios.get(`http://localhost:8080/home/search/${artist}`);
+            const response = await axios.get(`https://leep-server.herokuapp.com/home/search/${artist}`);
             setArtistExists(response.data)
             if(!response.data) {
                 SetError(true)
