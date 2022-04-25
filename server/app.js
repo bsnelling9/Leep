@@ -15,8 +15,6 @@ app.use(bodyparser.urlencoded({
     extended: true
 }))
 
-
-
 const signupRoute = require('./routes/signup');
 const loginRoute = require('./routes/login');
 const artistRoutes = require('./routes/artistroutes');
@@ -43,8 +41,18 @@ app.use('/profile', userProfile);
 app.use('/artistprofile', artistProfile);
 app.use('/songdata', songData)
 app.use('/genre', genre)
+app.get('/', (req, res, next) => {
 
+    res.status(200).json({
+        status: 'success',
+        data: {
+            name: 'leep server',
+            version: '0.1.0'
+        }
+    });
 
-app.listen(PORT, () => {
+});
+
+app.listen(process.env.PORT || 5050, () => {
     console.log(`Hello! My server is listening on ${PORT}`);
 });

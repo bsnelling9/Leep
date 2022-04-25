@@ -15,7 +15,7 @@ export default function ArtistPage(props) {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/artistprofile/${artistName.id}`)
+            const response = await axios.get(`https://leep-server.herokuapp.com//artistprofile/${artistName.id}`)
             setArtistProfile ({
                 artist: response.data[0].username,
                 listeners: response.data[0].listeners,
@@ -23,7 +23,7 @@ export default function ArtistPage(props) {
                 genres: response.data[0].tag,
                 bio: response.data[0].summary
             });
-            const songs = await axios.get(`http://localhost:8080/artistprofile/${artistName.id}/toptracks`);
+            const songs = await axios.get(`https://leep-server.herokuapp.com/artistprofile/${artistName.id}/toptracks`);
             setArtistTopSongs (
                 songs.data
             )
@@ -34,7 +34,7 @@ export default function ArtistPage(props) {
 
     const getFollowing = async () => {
         const username = props.profileData.tokenInfo.profileData.username
-        const alreadyFollowing = await axios.get(`http://localhost:8080/artistprofile/follow/${username}/${artistName.id}`)
+        const alreadyFollowing = await axios.get(`https://leep-server.herokuapp.com/artistprofile/follow/${username}/${artistName.id}`)
         if(alreadyFollowing.data) {
             setIsFollowing (
                 true
@@ -50,13 +50,13 @@ export default function ArtistPage(props) {
         const username = props.profileData.tokenInfo.profileData.username
         const follow = event.target.value
         setIsFollowing (true)
-        await axios.post(`http://localhost:8080/artistprofile/${artistName.id}/follow`, {username: username, followArtist: follow })  
+        await axios.post(`https://leep-server.herokuapp.com/artistprofile/${artistName.id}/follow`, {username: username, followArtist: follow })  
     }
 
     const handleUnfollow = async (event) => {
         try {
             const followid = followingData.followid
-            const response = await axios.delete(`http://localhost:8080/artistprofile/${artistName.id}/unfollow`, {data: {followid: followid}})
+            const response = await axios.delete(`https://leep-server.herokuapp.com/artistprofile/${artistName.id}/unfollow`, {data: {followid: followid}})
             console.log(response)
             if (response) {
                 setIsFollowing (false)
@@ -69,7 +69,7 @@ export default function ArtistPage(props) {
     const handlePlayCount = async (songid, plays) => {
         const newPlayCount = plays + 1
         console.log(songid, newPlayCount)
-        await axios.post(`http://localhost:8080/songdata/${songid}/playcount`, { plays: newPlayCount })
+        await axios.post(`https://leep-server.herokuapp.com/songdata/${songid}/playcount`, { plays: newPlayCount })
   
     }
 

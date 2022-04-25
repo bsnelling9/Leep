@@ -22,7 +22,7 @@ export default function ChartsPage() {
     const handlePlayCount = async (songid, plays) => {
         const newPlayCount = plays + 1
         console.log(songid, newPlayCount)
-        await axios.post(`http://localhost:8080/songdata/${songid}/playcount`, { plays: newPlayCount })
+        await axios.post(`https://leep-server.herokuapp.com/${songid}/playcount`, { plays: newPlayCount })
     } 
 
     useEffect(() => {
