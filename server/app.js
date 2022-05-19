@@ -39,10 +39,10 @@ app.use('/charts', chartRoutes);
 app.use('/uploadsongs', uploadSongs);
 app.use('/profile', userProfile);
 app.use('/artistprofile', artistProfile);
-app.use('/songdata', songData)
-app.use('/genre', genre)
-app.get('/', (req, res, next) => {
+app.use('/songdata', songData);
+app.use('/genre', genre);
 
+app.get('/', (req, res, next) => {
     res.status(200).json({
         status: 'success',
         data: {

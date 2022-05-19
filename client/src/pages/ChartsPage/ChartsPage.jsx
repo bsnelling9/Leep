@@ -10,7 +10,8 @@ export default function ChartsPage() {
     
     const fetchSongs = async() => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/charts`);
+            const response = await axios.get(`https://leep-server.herokuapp.com/charts`)
+            console.log(response)
             setTopSongs(
              response.data
             )

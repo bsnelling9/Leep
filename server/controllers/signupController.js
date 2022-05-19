@@ -2,6 +2,7 @@ const knex = require('knex')(require('../knexfile').development);
 const { v4: uuidv4 } = require('uuid');
 
 exports.profile = (req, res) => {
+    console.log(req.body)
     const { username, password, email} = req.body;
     knex("profile")
     .insert({

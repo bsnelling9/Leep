@@ -1,7 +1,7 @@
 const knex = require('knex')(require('../knexfile').development);
 
-
 exports.songs = async (req, res) => {
+    console.log('hello')
     const song = await knex('song').orderBy("plays", 'desc')
     .limit(25)
     if (song) {

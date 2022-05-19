@@ -2,8 +2,19 @@ import './TopSongsCard.scss';
 import { Link } from "react-router-dom";
 
 export default function TopSongsCard(props) {
+
     const position = props.position +1;
     
+    const checkCover = (a) => {
+        const cover = a
+        if(cover === "Pw==") {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+
     const randomColor = () => {
         const colorArray = ['red', 'dodgerblue', 'yellow', 'blue', 'orange', 'lightblue', 'purple']
         let color = colorArray[Math.floor(Math.random()*colorArray.length)]
@@ -24,7 +35,7 @@ export default function TopSongsCard(props) {
                     </h2>
                 </div>
                 <div className='song-cover__container' onClick={() => props.handlePlayCount(props.id, props.playcount)}>
-                    {props.img? 
+                    {checkCover(props.img)? 
                         <div className='song-cover__wrapper'>
                             <img className='song-cover__img' src={`data:image/*;base64,${props.img}`} alt=""/>
                         </div> 

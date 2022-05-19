@@ -15,7 +15,7 @@ export default function ArtistPage(props) {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`https://leep-server.herokuapp.com//artistprofile/${artistName.id}`)
+            const response = await axios.get(`https://leep-server.herokuapp.com/artistprofile/${artistName.id}`)
             setArtistProfile ({
                 artist: response.data[0].username,
                 listeners: response.data[0].listeners,
