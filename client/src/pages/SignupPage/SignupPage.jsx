@@ -1,11 +1,12 @@
-import axios from "axios";
+import React from "react";
+import {axios} from "axios";
 import { useState } from 'react';
-import './SignupPage.scss';
-import bcrypt from 'bcryptjs';
-import { Redirect, Link } from "react-router-dom";
+import './SignUpPage.scss';
+import {bcrypt} from 'bcryptjs';
+import {BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 
 
-export default function SignupPage () {
+function SignupPage () {
 
     const [email, setEmail] = useState({
         value: "",
@@ -64,11 +65,11 @@ export default function SignupPage () {
         })
     }
 
+    /*submits the form info to the backend if all inputs are filled out, if not user gets an error message */
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (email.value && username.value && password.value ) {
-            console.log("hello there")
-            const hashedPassword = bcrypt.hashSync(password.value, bcrypt.genSaltSync(10))
+            const hashedPassword = bcrypt?.hashSync(password.value, bcrypt.genSaltSync(10))
             try {
                 await axios.post(`https://leep-server.herokuapp.com/signup`, {
                     username: username.value,
@@ -86,7 +87,7 @@ export default function SignupPage () {
             if(!password.value) {setPassword({ error: true})}
             if(!confirmPassword.value) {setConfirmPassword({ error: true})}
             if(email.value !== confirmEmail.value) {
-                alert("Emails do not match");
+                window.alert("Emails do not match");
                 setEmail({
                     error: true
                 })
@@ -95,7 +96,7 @@ export default function SignupPage () {
                 })
             }
             if(password.value !== confirmPassword.value) {
-                alert("Passwords do not match");
+                window.alert("Passwords do not match");
                 setPassword({
                     error: true
                 })
@@ -107,7 +108,7 @@ export default function SignupPage () {
     }
 
     if(submit) {
-        return <Redirect to='/login'/>
+        return <Router><Redirect to='/login'/></Router>
     }
     return (
         <div className="signup">
@@ -122,6 +123,7 @@ export default function SignupPage () {
                             className={!email.error? `form__input ${email.value? 'form__valid':''}`: "form__input error"}
                             type='text'
                             id='email'
+                            data-testid='email'
                             name='email'
                             value={email.value}
                             onChange={handleEmail}
@@ -134,6 +136,7 @@ export default function SignupPage () {
                             className={!confirmEmail.error? `form__input ${confirmEmail.value? 'form__valid':''}`: "form__input error"}
                             type='text'
                             id='confirmemail'
+                            data-testid='confirmemail'
                             name='confirmemail'
                             value={confirmEmail.value}
                             onChange={handleConfirmEmail}
@@ -145,6 +148,7 @@ export default function SignupPage () {
                             className={!username.error? `form__input ${username.value? 'form__valid':''}`: "form__input error"}
                             type='text'
                             id='username'
+                            data-testid='username'
                             name='username'
                             value={username.value}
                             onChange={handleUserName}
@@ -157,6 +161,7 @@ export default function SignupPage () {
                             type='password'
                             id='password'
                             name='password'
+                            data-testid='password'
                             value={password.value}
                             onChange={handlePassword}
                         />
@@ -167,23 +172,27 @@ export default function SignupPage () {
                             className={!confirmPassword.error? `form__input ${confirmPassword.value? 'form__valid':''}`: "form__input error"}
                             type='password'
                             id='confirmPassword'
+                            data-testid='confirmPassword'
                             name='confirmPassword'
                             value={confirmPassword.value}
                             onChange={handleConfirmPassword}
                         />
                         <label className="form__label" htmlFor="confirmPassword">Please confirm your password</label>
                     </div>
-                    <button className="form__btn" type="submit">
+                    <button  data-testid="submit" className="form__btn" type="submit">
                         Sign up
                     </button>
                     <div className="signup__redirect">
                         <h3 className="signup__redirect--message">Already have an account?</h3>
-                        <Link className="signup__redirect--link" to='/login'>
-                            Log in.
-                        </Link>
+                        <Router>
+                            <Link className="signup__redirect--link" to='/login'>
+                                Log in.
+                            </Link>
+                        </Router>
                     </div>
                 </form>
             </div>
         </div>
     )
 }
+export default SignupPage;
