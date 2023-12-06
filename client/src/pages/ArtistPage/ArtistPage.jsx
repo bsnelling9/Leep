@@ -67,7 +67,6 @@ export default function ArtistPage(props) {
 
     const handlePlayCount = async (songid, plays) => {
         const newPlayCount = plays + 1
-        console.log(songid, newPlayCount)
         await axios.post(`https://leep-server.herokuapp.com/songdata/${songid}/playcount`, { plays: newPlayCount })
   
     }
