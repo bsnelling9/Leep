@@ -57,7 +57,6 @@ export default function ArtistPage(props) {
         try {
             const followid = followingData.followid
             const response = await axios.delete(`https://leep-server.herokuapp.com/artistprofile/${artistName.id}/unfollow`, {data: {followid: followid}})
-            console.log(response)
             if (response) {
                 setIsFollowing (false)
             }
