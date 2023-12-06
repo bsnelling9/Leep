@@ -30,7 +30,6 @@ function App() {
     )
   }
 
-  console.log(profile)
   return (
     <div className="App">
       <Router>
