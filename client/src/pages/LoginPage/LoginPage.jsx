@@ -70,7 +70,7 @@ export default function LoginPage (props) {
                     authorization: `Bearer ${token}`
                 }
             })
-            console.log(result.data)
+
             sessionStorage.setItem('profiledata', JSON.stringify(result.data));
             props.profileData(result.data);
             setLoggedIn(true);
